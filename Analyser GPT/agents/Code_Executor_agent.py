@@ -4,7 +4,7 @@ from autogen_agentchat.agents import CodeExecutorAgent
 
 def GetCodeExecutorAgent():
     agent = CodeExecutorAgent(
-        name="Code Executor Agent",
+        name="CodeExecutor",
         description="An agent that executes code and returns the output.",
         system_message="You are a code executor. You will receive code snippets and execute them, returning the output.",
         tools=[],
