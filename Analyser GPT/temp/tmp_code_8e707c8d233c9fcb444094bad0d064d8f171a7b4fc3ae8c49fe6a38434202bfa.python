@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the data from the file
+file_path = 'data.csv'  # Assuming the file is data.csv, change if it's data.xlsx.
+df = pd.read_csv(file_path)
+
+# Filter data to get entries for deceased individuals
+# Assuming 'Survived' column where 0 means dead, and there is an 'Age' column.
+deceased_df = df[df['Survived'] == 0]
+
+# Calculate average age of deceased individuals
+average_age = deceased_df['Age'].mean()
+
+# Plotting the average age
+plt.figure(figsize=(8, 6))
+plt.bar(['Deceased'], [average_age], color='red')
+plt.ylabel('Average Age')
+plt.title('Average Age of Deceased Individuals')
+
+# Save the plot as an image
+plt.savefig('average_age_of_deceased.png')
+
+print('Task accomplished! The graph is saved as "average_age_of_deceased.png"')

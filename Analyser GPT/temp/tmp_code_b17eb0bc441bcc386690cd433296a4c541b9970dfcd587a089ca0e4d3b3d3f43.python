@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the data
+data = pd.read_csv('data.csv')
+
+# Check the data preview
+print(data.head())
+
+# Correct column name to lowercase 'survived'
+survived_counts = data['survived'].value_counts()
+
+# Plotting the graph
+plt.figure(figsize=(6,4))
+survived_counts.plot(kind='bar', color=['red', 'green'])
+plt.title('Passengers Survived vs Dead')
+plt.xlabel('Survival Status')
+plt.ylabel('Number of Passengers')
+plt.xticks(ticks=[0, 1], labels=['Dead', 'Survived'], rotation=0)
+plt.grid(axis='y')
+
+# Save the plot to a file
+plt.savefig('survived_vs_dead.png')
+
+print('Task accomplished!') # This should be the last line of your code

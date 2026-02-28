@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the data
+data = pd.read_csv('data.csv')
+
+# Preview the data
+print(data.head())
+
+# Examine the columns to find the one related to survival
+# Assumed 'Survived' column exists where 0 = Dead, 1 = Survived
+survived_counts = data['Survived'].value_counts()
+
+# Plotting the graph
+plt.figure(figsize=(6,4))
+survived_counts.plot(kind='bar', color=['red', 'green'])
+plt.title('Passengers Survived vs Dead')
+plt.xlabel('Survival Status')
+plt.ylabel('Number of Passengers')
+plt.xticks(ticks=[0, 1], labels=['Dead', 'Survived'], rotation=0)
+plt.grid(axis='y')
+
+# Save the plot to a file
+plt.savefig('survived_vs_dead.png')
+
+print('Task accomplished!') # This should be the last line of your code

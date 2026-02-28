@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+
+# Load the dataset
+file_name = 'data.csv'
+data = pd.read_csv(file_name)
+
+# Create the plot using the correct column name
+survival_counts = data['survived'].value_counts()
+
+plt.figure(figsize=(8, 6))
+plt.bar(['Dead', 'Survived'], survival_counts, color=['red', 'green'])
+plt.title('Survived vs Dead')
+plt.xlabel('Outcome')
+plt.ylabel('Count')
+plt.savefig('survived_vs_dead.png')
+
+print('Task accomplished!')  # This should be the last line of your code
